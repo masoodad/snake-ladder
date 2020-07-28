@@ -1,0 +1,63 @@
+body{
+	background-color:red;
+}
+
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+#ctx {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+
+#board {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+.square {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  z-index: -1;
+  background-color: sandybrown;
+  border: 2px solid;
+}
+.player {
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: 1px solid;
+}
+
+.triangle-left {
+	width: 0;
+  height: 0;
+  position: absolute;
+  z-index: 0;
+	border-top: 24px solid transparent;
+	border-right: 40px solid rgb(173, 54, 54);
+	border-bottom: 16px solid transparent;
+}

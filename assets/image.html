@@ -1,0 +1,15 @@
+<canvas id="viewport" width="200" height="300"></canvas>
+<script>
+var canvas = document.getElementById('viewport'),
+ctx = canvas.getContext('2d');
+function make_base()
+		{
+		  base_image = new Image();
+		  base_image.src = 'start.png';
+		  base_image.onload = function(){
+			ctx.drawImage(base_image, 0, 0);
+		  }
+		}
+	make_base();
+		
+</script>

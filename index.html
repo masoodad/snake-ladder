@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Snake & Ladder Game</title>
+	 <link rel="stylesheet" href="../assets/styles.css">
+	 <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+</head>
+<body>
+	<center><button onclick="dice()" class="button">Dice</button></center>
+	<div class="container">
+		<div><canvas width="900" height="550"></canvas></div>
+		<h1 id="status"> </h1>
+		
+	</div>
+	<script>
+			
+		var socket= io();
+		
+		
+	//Dice Value Sended
+		var dice = function(){
+			socket.emit('dice',{
+				random: (Math.floor(Math.random()*6) + 1)
+			});
+		}
+		
+	//Working with Canvas Chess
+		var canvas = document.querySelector('canvas');
+		var cordinate = [];
+		var teleporter = [];
+		var st_image = new Image();
+		var en_image = new Image();
+		var drone = new Image();
+		var teleport = new Image();
+		drone.src = 'assets/drone.png';
+		teleport.src = 'assets/teleport.png';
+		st_image.src = 'assets/start.png';
+		en_image.src = 'assets/end.png';
+
+		canvas.width = 900;
+		canvas.height = 545;
+
+		var ctx = canvas.getContext('2d');
+		ctx.font = '40px Arial';
+
+
+	
+		var draw = function(){
+			ctx.clearRect(0,0,900,550);
+		
+		// Canvas Draw RectangeUP
+		
+			ctx.beginPath();
+			ctx.lineWidth = "6";
+			ctx.strokeStyle = "orange";
+			ctx.rect(565, 10, 328, 200);
+			ctx.stroke();
+		
+		// Canvas Draw RectangeDown
+		
+			ctx.beginPath();
+			ctx.lineWidth = "6";
+			ctx.strokeStyle = "silver";
+			ctx.rect(565, 230, 328, 300);
+			ctx.stroke();
+			
+		// Canvas Draw Line
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.strokeStyle = "black";
+			ctx.moveTo(555, 0);
+			ctx.lineTo(555, 555);
+			ctx.stroke();
+		//Drawing Board
+
+			var x=55;
+			var y=55;
+
+			for(var i=0; i<10; i++){
+				for(var j=0; j<10; j++){
+					ctx.fillStyle = 'blue';
+					ctx.fillRect(i*x,j*y,50, 50);
+					if(j%2==0 && (i)%2==0){
+					ctx.fillStyle = '#808080';
+					ctx.fillRect(i*x,j*y,50, 50);}else if((j+1)%2==0 && (i+1)%2==0){
+						ctx.fillStyle = '#F8F8FF';
+						ctx.fillRect(i*x,j*y,50, 50);
+					}
+				}
+			}
+				
+			for(var k=0; k< cordinate.length; k++){		
+				ctx.font = '40px Arial';
+				ctx.fillStyle = cordinate[k].color;
+				ctx.fillText('P'+(k+1), cordinate[k].x ,cordinate[k].y);	
+				ctx.fillText('P'+(k+1)+': Player '+(k+1), 570,125 + 40*(k-2));
+				ctx.fillText('P'+(k+1)+': It\'s '+ cordinate[k].previousDice, 570,350 + 40*(k-2));
+			}
+
+			for(e in teleporter){
+				var d = teleporter[e];
+				ctx.fillStyle = '#E03A8F';
+
+				ctx.drawImage(drone,d.sx*55,d.sy*55,55,55);
+				ctx.drawImage(teleport,d.ex*55,d.ey*55,55,55);
+			}
+			
+			ctx.drawImage(st_image, 0, 490,55,55);
+			ctx.drawImage(en_image, 0, 0,55,55);
+			requestAnimationFrame(draw);
+		}
+				
+	// SOCKET ID Obtained
+		socket.on('target', function(telep){
+			teleporter = telep;
+		});
+		socket.on('newPositions', function(cordi){
+			cordinate = cordi;
+		});
+		
+		draw();
+
+	// SOCKET ALERT Obtained
+		socket.on('win', function(msg){
+			alert(msg);
+		});
+		
+	</script>
+</body>
+</html>

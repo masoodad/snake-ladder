@@ -1,0 +1,43 @@
+body{
+    background:linear-gradient(45deg,rgba(255, 203, 5, 1), rgba(0, 0, 255, 0.7));
+	margin:0px;
+}
+
+.container{
+	display:flex;
+	position:absolute;
+	top:9.5%;
+}
+
+canvas{		
+			border:5px solid black;
+			background:white;	
+			margin:0 10% 0 25%;
+		}
+
+.button {
+		  display: inline-block;
+		  padding: 10px 15px;
+		  font-size: 24px;
+		  cursor: pointer;
+		  text-align: center;
+		  text-decoration: none;
+		  outline: none;
+		  color: #fff;
+		  background-color: #006400;
+		  border: none;
+		  border-radius: 15px;
+		  box-shadow: 0 9px #4CAF50;
+		}
+		
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+		  background-color: #3e8e41;
+		  box-shadow: 0 5px black;
+		  transform: translateY(4px);
+		}
+		
+#right-box{
+	margin-left:10%;
+}
