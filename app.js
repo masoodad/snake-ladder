@@ -17,7 +17,7 @@ var SOCKET_LIST = {};
 var chance=0;
 var list_socket = [];
 var PLAYER_LIST = {};
-var TELEPORT = [{'sx':4,'sy':3,'ex':6,'ey':5},{'sx':5,'sy':2,'ex':4,'ey':6},{'sx':8,'sy':2,'ex':5,'ey':5}]
+var TELEPORT = [{'sx':4,'sy':3,'ex':0,'ey':4},{'sx':4,'sy':6,'ex':3,'ey':8},{'sx':8,'sy':2,'ex':5,'ey':5},{'sx':8,'sy':9,'ex':9,'ey':7},{'sx':6,'sy':2,'ex':5,'ey':0},{'sx':1,'sy':0,'ex':9,'ey':3}]
 //Player
 var Player = function(id){
 	var self = {
