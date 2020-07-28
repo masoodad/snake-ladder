@@ -145,4 +145,4 @@ setInterval(function(){
 		socket.emit('newPositions',pack);
 	}
 	
-},1000/30);
+},1000/20);
