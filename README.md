@@ -4,7 +4,7 @@ This is a multiplayer web server game based on the concepts of snakes and ladder
 
 ## FIRA 2020 Social Distancing Competition, Online Only
 
-Like most people, many FIRA participants have been impacted by the COVID-10 pandemic. We are all sad that we cannot meet this year as was originally planned.
+Like most people, many FIRA participants have been impacted by the COVID-19 pandemic. We are all sad that we cannot meet this year as was originally planned.
 
 Instead of focusing on the negatives of the current pandemic, the FIRA HQ sees this current situation as an opportunity to grow. Therefore, FIRA will run online only competitions which are related to social distancing and isolation of the current as a new research challenge.
 
