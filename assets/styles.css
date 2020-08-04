@@ -1,6 +1,10 @@
 body{
-    background:linear-gradient(45deg,rgba(255, 203, 5, 1), rgba(0, 0, 255, 0.7));
-	margin:0px;
+    font-size: 16px;
+	font-family: Dosis, Roboto, Arial, Verdana, sans-serif;
+	padding: 0;
+	margin: 0;
+	border: 0;
+	background: rgba(128, 200, 255, 0.8);
 }
 
 .container{
